@@ -1,17 +1,39 @@
 {
   "name": "react-fadewriter",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.1.6",
   "type": "module",
+  "description": "A React component that fades in text character by character",
+  "author": "Adarsh",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "animation",
+    "fade",
+    "typewriter",
+    "text"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "module": "./dist/index.js",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsup",
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5"
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -22,6 +44,10 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.5.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3",
     "vite": "^8.0.10"
   }
 }

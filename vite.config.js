@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.js'),
-      name: 'ReactFadeWriter',
+      formats: ['es', 'cjs'],
       fileName: (format) => `react-fadewriter.${format}.js`,
     },
     rollupOptions: {

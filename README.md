@@ -1,16 +1,46 @@
-# React + Vite
+# react-fadewriter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight React component that fades in text character by character.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install react-fadewriter
+```
 
-## React Compiler
+## Usage
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```jsx
+import { FadeWriter } from 'react-fadewriter'
 
-## Expanding the ESLint configuration
+function App() {
+  return <FadeWriter text="Hello, World!" speed={60} />
+}
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+No CSS import needed — styles are injected automatically.
+
+## Props
+
+| Prop        | Type     | Default | Description                              |
+|-------------|----------|---------|------------------------------------------|
+| `text`      | `string` | `''`    | The text to animate                      |
+| `speed`     | `number` | `80`    | Delay between characters in milliseconds |
+| `className` | `string` | `''`    | Optional CSS class for the wrapper       |
+
+## Examples
+
+```jsx
+// Slow fade
+<FadeWriter text="Slow and steady..." speed={120} />
+
+// Fast fade
+<FadeWriter text="Quick!" speed={30} />
+
+// With custom class
+<FadeWriter text="Styled text" className="my-heading" speed={60} />
+```
+
+## License
+
+MIT
