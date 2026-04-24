@@ -1,0 +1,11 @@
+.fade-writer__char {
+  display: inline-block;
+  opacity: 0;
+  animation: fw-fade-in 0.4s ease forwards;
+  white-space: pre;
+}
+
+@keyframes fw-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
