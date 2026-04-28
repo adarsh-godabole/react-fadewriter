@@ -5,6 +5,11 @@ const STYLES = `
   animation: fw-fade-in 0.4s ease forwards;
   white-space: pre;
 }
+.fade-writer__word {
+  display: inline-block;
+  opacity: 0;
+  animation: fw-fade-in 0.4s ease forwards;
+}
 @keyframes fw-fade-in {
   from { opacity: 0; }
   to   { opacity: 1; }
@@ -22,17 +27,27 @@ function injectStyles() {
 
 injectStyles()
 
-export default function FadeWriter({ text = '', speed = 80, className = '' }) {
+export default function FadeWriter({
+  text = '',
+  speed = 80,
+  mode = 'char',
+  className = '',
+  onComplete,
+}) {
+  const tokens = mode === 'word' ? text.split(' ') : text.split('')
+  const last = tokens.length - 1
+
   return (
     <span className={`fade-writer ${className}`} aria-label={text}>
-      {text.split('').map((char, i) => (
+      {tokens.map((token, i) => (
         <span
           key={i}
-          className="fade-writer__char"
+          className={mode === 'word' ? 'fade-writer__word' : 'fade-writer__char'}
           style={{ animationDelay: `${i * speed}ms` }}
+          onAnimationEnd={i === last ? onComplete : undefined}
           aria-hidden="true"
         >
-          {char === ' ' ? ' ' : char}
+          {token}{mode === 'word' && i < last ? ' ' : ''}
         </span>
       ))}
     </span>
